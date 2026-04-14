@@ -1,7 +1,9 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('logs in to Sauce Demo successfully', async ({ page }) => {
+// Smoke tests cover the most important flows you want to check quickly.
+// Regression tests cover tests you want included in the broader suite.
+test('logs in to Sauce Demo successfully', { tag: ['@smoke', '@regression'] }, async ({ page }) => {
   // Step 1: Open the Sauce Demo website.
   await page.goto('https://www.saucedemo.com/');
 
@@ -18,7 +20,7 @@ test('logs in to Sauce Demo successfully', async ({ page }) => {
   await expect(page).toHaveURL(/inventory/);
 });
 
-test('shows an error for invalid login', async ({ page }) => {
+test('shows an error for invalid login', { tag: '@regression' }, async ({ page }) => {
   // Step 1: Open the Sauce Demo website.
   await page.goto('https://www.saucedemo.com/');
 

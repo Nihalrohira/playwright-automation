@@ -1,7 +1,9 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('adds a product to the cart successfully', async ({ page }) => {
+// Smoke tests are quick checks for critical user actions.
+// Regression tests are the full set of tests you want to run more broadly.
+test('adds a product to the cart successfully', { tag: ['@smoke', '@regression'] }, async ({ page }) => {
   // Step 1: Open the Sauce Demo website.
   await page.goto('https://www.saucedemo.com/');
 
