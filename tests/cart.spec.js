@@ -21,5 +21,6 @@ test('adds a product to the cart successfully', async ({ page }) => {
   await page.locator('[data-test="shopping-cart-link"]').click();
 
   // Step 7: Verify the selected product is visible in the cart.
-  await expect(page.locator('.inventory_item_name')).toContainText('Sauce Labs Backpack');
+  // Intentional failure for CI testing
+  await expect(page.locator('.inventory_item_name')).toContainText('Sauce Labs Bike Light');
 });
