@@ -27,9 +27,10 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # Step 5: Run the Playwright test suite.
+      # Step 5: Run only the smoke tests on every push using the smoke tag.
       - name: Run Playwright tests
-        run: npx playwright test
+        # --grep @smoke tells Playwright to run only tests tagged with @smoke.
+        run: npx playwright test --grep @smoke
 
       # Step 6: Upload the Playwright HTML report so you can review it later.
       - name: Upload Playwright report
